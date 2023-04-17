@@ -1,0 +1,26 @@
+
+.container1{
+    width: 400px;
+    height: 510px;
+    background-color: #fff;
+    bottom: -25px;
+    justify-content: space-between;
+    margin: auto;
+}
+.container1 .input100{
+    border: 1px solid #ccc;
+    border-radius: 17px;
+    float: left;
+    box-shadow: 3px 2px 20px -4px #888888;
+    background-color: #ffffff;
+}
+.container1 .login100-form-btn{
+    background-color: #0562c5;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    color: white;
+    box-shadow: -1px 9px 19px -9px #0562c5;
+}
+.container1 .login100-form-btn:hover{
+    opacity: 0.8;
+}
