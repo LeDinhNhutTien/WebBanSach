@@ -1,56 +1,126 @@
-(function ($) {
-    "use strict";
 
+// Đối tượng   `Validator`
+function Validator(options){
 
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
+    function getParent(element, selector){
+        while (element.parentElement){
+            if(element.parentElement.matches(selector)){
+                return element.parentElement
+            }
+            element = element.parentElement
+        }
+    }
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
+    var selectorRules = {}
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
+    // hàm thực hiện validate
+    function validate(inputElement, rule){
+        var errorElement = getParent(inputElement, options.formGroupElement).querySelector(options.errorSelector);
+        var errorMessage;
+
+        // Lấy ra các rule của selector
+        var rules = selectorRules[rule.selector];
+
+        // lặp qua từng rule và kiểm tra
+        // Nếu có lỗi thì dừng việc kiểm tra
+        for(var i = 0; i < rules.length; i++){
+            errorMessage = rules[i](inputElement.value);
+            if(errorMessage) break;
+        }
+
+        if(errorMessage){
+            errorElement.innerHTML = errorMessage;
+            getParent(inputElement, options.formGroupElement).classList.add('invalid');
+        }else{
+            errorElement.innerHTML = '';
+            getParent(inputElement, options.formGroupElement).classList.remove('invalid');
+        }
+        return !errorMessage // return false || true
+    }
+    // lấy element của form cần validate
+    var formElement = document.querySelector(options.form);
+
+    if(formElement){
+
+        // khi submit form
+        formElement.onsubmit = function (e){
+            // e.preventDefault();
+
+            var isFormValid = true;
+
+            // lặp qua từng rules và validate
+            options.rules.forEach(function (rule){
+                var inputElement = formElement.querySelector(rule.selector);
+                var isValid = validate(inputElement, rule);
+                if(!isValid){
+                    isFormValid = false;
+                }
+            })
+
+            if(isFormValid){
+                // trường hợp submit với JavaScript
+                if(typeof options.onSubmit === 'function'){
+                    var enableInputs = formElement.querySelectorAll('[name]:not([disabled])')
+                    var formValues = Array.from(enableInputs).reduce(function(values,input){
+                        values[input.name] = input.value
+                        return values
+                    },{})
+                    options.onSubmit(formValues)
+                }
+                // Trường hợp submit với hành vi mặc định
+                else{
+                    formElement.submit();
+                }
             }
         }
 
-        return check;
-    });
+        // lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input)
+        options.rules.forEach(function(rule){
 
+            // Lưu lại các rule cho mỗi input
+            if(Array.isArray(selectorRules[rule.selector])){
+                selectorRules[rule.selector].push(rule.test);
+            }else{
+                selectorRules[rule.selector] = [rule.test];
+            }
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-            hideValidate(this);
+            var inputElement = formElement.querySelector(rule.selector);
+
+            if(inputElement){
+                // xử lý trường hợp blur khỏi input
+                inputElement.onblur = function(){
+                    validate(inputElement,rule);
+                }
+                // xử lý mỗi khi người dùng nhập vào input
+                inputElement.oninput = function(){
+                    var errorElement = getParent(inputElement, options.formGroupElement).querySelector(options.errorSelector);
+                    errorElement.innerHTML = '';
+                    getParent(inputElement, options.formGroupElement).classList.remove('invalid');
+                }
+            }
         });
-    });
+    }
+}
 
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
+// Định nghĩa rules
+// Nguyên tắc của các rules:
+// 1. Khi có lỗi => Trả ra message lỗi
+// 2. Khi hợp lệ =? Không trả ra cái gì cả (undefined)
+Validator.isRequired = function (selector, message){
+    return {
+        selector: selector,
+        test: function (value){
+            return value.trim() ? undefined : message || "Vui lòng nhập trường này."
         }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
+    }
+}
+
+
+Validator.minLength = function (selector,min, message){
+    return {
+        selector: selector,
+        test: function (value){
+            return value.length >= min ? undefined : message || `Vui lòng nhập tối thiểu ${min} ký tự`
         }
     }
-
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
-    }
-
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
-    }
-
-
-
-})(jQuery);
+}
