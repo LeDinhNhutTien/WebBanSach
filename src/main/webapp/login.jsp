@@ -53,6 +53,8 @@
     </style>
 </head>
 <body>
+    <%--    Use case Dang nhap B.1 Tiến--%>
+
     <%--    2.  Hệ thống hiển thị giao diện cho phép thực hiện đăng nhập,
     giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   --%>
 <div class="limiter">
@@ -139,7 +141,7 @@
             rules: [
                 // 5. Hệ thống tự động kiểm tra thông tin nhập vào có hợp lệ không tại client.
                 Validator.isRequired('#name','Vui lòng nhập tên tài khoản của bạn'),
-                Validator.minLength('#password',6,'Vui lòng nhập mật khẩu đủ 8 ký tự'),
+                Validator.minLength('#password',6,'Vui lòng nhập mật khẩu đủ 6 ký tự'),
             ]
         });
     </script>

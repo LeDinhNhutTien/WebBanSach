@@ -106,6 +106,9 @@
                             Đăng xuất
                         </a>
                     </c:if>
+                    <%--    Use case Dang nhap B.1 Tiến--%>
+
+                    <%--1. Người dùng chọn đăng nhập--%>
                     <c:if test="${sessionScope.acc == null}">
                         <a href="login" class="btn border border-back">
                             Đăng nhập
@@ -211,9 +214,9 @@
                                         <h5 style="color: #c9bdfb;">${o.name}</h5>
                                         <h5 style="color: rgb(11, 220, 11);">Hình thức bìa: Bìa mềm</h5>
                                         <ul>
-                                            <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</i>
-                                            <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</i>
-                                            <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</i>
+                                            <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</li>
+                                            <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</li>
+                                            <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</li>
                                         </ul>
                                     </div>
                                     <div class="product-top">
@@ -225,7 +228,9 @@
                                 <div class="product-deal">
                                     <div class="product-buy"><a href="buynow.html">Mua ngay</a></div>
                                     <div class="product-price">${o.price} VNĐ</div>
-                                </div>
+                                </div
+
+                                <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
                                 <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
                                      trên giao diện mỗi sản phẩm.--%>
                                 <div class="product-detail">
@@ -236,7 +241,7 @@
                     </c:forEach>
                 </ul>
                 <div class="see-more" style="text-align: center; margin-bottom: 30px">
-                    <a style="text-decoration: none" href="shop.jsp">Xem thêm</a>
+                    <a style="text-decoration: none" href="shop">Xem thêm</a>
                 </div>
             </div>
 
@@ -261,9 +266,9 @@
                                     <h5 style="color: #c9bdfb;">${o.name}</h5>
                                     <h5 style="color: rgb(11, 220, 11);">Hình thức bìa: Bìa mềm</h5>
                                     <ul>
-                                        <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</i>
-                                        <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</i>
-                                        <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</i>
+                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</li>
+                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</li>
+                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</li>
                                     </ul>
                                 </div>
                                 <div class="product-top">
@@ -276,6 +281,9 @@
                                 <div class="product-buy"><a href="buynow.html">Mua ngay</a></div>
                                 <div class="product-price">${o.price} VNĐ</div>
                             </div>
+                                <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
+                                <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
+                                     trên giao diện mỗi sản phẩm.--%>
                             <div class="product-detail">
                                 <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
                             </div>
@@ -285,7 +293,7 @@
                 </ul>
 
                 <div class="see-more" style="text-align: center; margin-bottom: 30px">
-                    <a style="text-decoration: none" href="shop.jsp">Xem thêm</a>
+                    <a style="text-decoration: none" href="shop">Xem thêm</a>
                 </div>
             </div>
 
@@ -309,9 +317,9 @@
                                     <h5 style="color: #c9bdfb;">${o.name}</h5>
                                     <h5 style="color: rgb(11, 220, 11);">Hình thức bìa: Bìa mềm</h5>
                                     <ul>
-                                        <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</i>
-                                        <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</i>
-                                        <i style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</i>
+                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</li>
+                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</li>
+                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</li>
                                     </ul>
                                 </div>
                                 <div class="product-top">
@@ -329,6 +337,9 @@
                                     <div class="price-sale">${o.price} VNĐ </div>
                                 </div>
                             </div>
+                                <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
+                                <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
+                                     trên giao diện mỗi sản phẩm.--%>
                             <div class="product-detail">
                                 <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
                             </div>
@@ -337,7 +348,7 @@
                     </c:forEach>
                 </ul>
                 <div class="see-more" style="text-align: center; margin-bottom: 30px">
-                    <a style="text-decoration: none" href="shop.jsp">Xem thêm</a>
+                    <a style="text-decoration: none" href="shop">Xem thêm</a>
                 </div>
             </div>
         </div>
@@ -474,7 +485,7 @@
         </div>
         <div>
             <div class="  site-footer__copyright  " style="padding-top: 15px">
-                <p>2022 © All Rights Reserved | Designed and Developed by :Lê Đình Nhựt Tiến, Bùi Quốc Long, Nguyễn Thùy Linh</p>
+                <p>2023 © All Rights Reserved | Designed and Developed by :Lê Đình Nhựt Tiến, Bùi Quốc Long, Nguyễn Thùy Linh</p>
             </div>
         </div>
     </div>
