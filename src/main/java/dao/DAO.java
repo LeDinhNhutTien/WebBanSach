@@ -16,14 +16,17 @@ public class DAO {
     private PreparedStatement ps = null;
     protected ResultSet rs = null;
 
-    // Đăng nhập
+    //Use case Dang nhap  (B.1 Tiến)
     public User login(String user, String password){
         String query = "select id,username,pass,fullname,role from user \n" + "where username = ?\n" + "and pass = ?";
         try {
-            conn = ConnectionUtil.getConnection(); // mo ket noi voi mysql
+            //7. Hệ thống kết nối với cơ sở dữ liệu
+            conn = ConnectionUtil.getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1,user);
             ps.setString(2,password);
+            //8.  Hệ thống tìm thông tin tài khoản người dùng thông qua tên
+            // tài khoản và mật khẩu trong cơ sở dữ liệu.
             rs = ps.executeQuery();
             if (rs.next()){
                 return  new User(rs.getInt(1),rs.getString(2),
@@ -35,13 +38,16 @@ public class DAO {
         return null;
     }
 
-    // lấy ra sp có id
+
+    //Use case Xem chi tiet san pham  (B.2 Tiến)
     public Product getProductByID(int id) {
         String sql = "SELECT id,productName,price,image,description FROM products WHERE id = ?";
         try {
+            //3. Ket noi co so du lieu
             conn = ConnectionUtil.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setInt(1,id);
+            // 4. Hệ thống tìm thông tin sản phẩm này trong cơ sở dữ liệu.
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new Product(rs.getInt(1),
@@ -137,7 +143,7 @@ public class DAO {
     public static void main(String[] args) {
         DAO productDAO = new DAO();
        // System.out.println(productDAO.login("Tien","123456"));
-        List<Product> products = productDAO.getProducSell();
+        List<Product> products = productDAO.getProducHot();
         for (Product product : products) {
             System.out.println(product);
         }
