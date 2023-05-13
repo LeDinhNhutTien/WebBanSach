@@ -173,10 +173,10 @@
                                            <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
                                            <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
                                                 trên giao diện mỗi sản phẩm.--%>
-                                       <div class="product-detail">
-                                           <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
-                                       </div>
-                                   </div>
+                                           <div class="product-detail">
+                                               <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
+                                           </div>
+                                            </div>
                                             </li>
                                         </c:forEach>
                                    </ul>
