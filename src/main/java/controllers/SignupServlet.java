@@ -23,7 +23,7 @@ public class SignupServlet extends HttpServlet {
         String user = request.getParameter("user");
         String pass = request.getParameter("pass");
         String repass = request.getParameter("repass");
-//        Use case Đăng ký tài khoản Long
+//        <-Use case Đăng ký tài khoản B.3 Long
 //        6. Hệ thống kiểm tra xem thôgn tin mật khẩu và nhập lại mật khẩu có giống nhau không
         if (!pass.equals(repass)) {
 //            7. Hệ thống thông báo mật khẩu không trùng khớp
