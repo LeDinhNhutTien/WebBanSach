@@ -18,16 +18,19 @@ public class LoginServlet extends HttpServlet {
     // Use case Dang nhap (B.1 Tiến)
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         //6. Nhận dữ liệu từ trang login.jsp gửi lên
         String username  = request.getParameter("username");
         String password  = request.getParameter("pass");
 
+        //7. Hệ thống kết nối với cơ sở dữ liệu
         DAO dao = new DAO();
+
         //9. He thong tra ve ket qua dang nhap
-        User a = dao.login(username,password);
+        User user = dao.login(username,password);
 
         //11. Nếu không có tài khoản, thông báo lỗi và yêu cầu người dùng đăng nhập lại.
-        if (a == null){
+        if (user == null){
             request.setAttribute("error","Tên tài khoản hoặc mật khẩu sai");
             request.getRequestDispatcher("login.jsp").forward(request,response);
         }
@@ -35,7 +38,7 @@ public class LoginServlet extends HttpServlet {
         // vào session và hiển thị giao diện trang chủ
         else{
             HttpSession session = request.getSession(true);
-            session.setAttribute("acc",a);
+            session.setAttribute("acc",user);
             response.sendRedirect("home");
         }
     }
