@@ -36,9 +36,11 @@
             line-height: 1.6rem;
             padding: 4px 0 0;
         }
+
         .form-group.invalid .form-message {
-            color: #dc3545 ;
+            color: #dc3545;
         }
+
         .form-control {
             height: 40px;
             padding: 8px 12px;
@@ -47,22 +49,23 @@
             outline: none;
             font-size: 1.4rem;
         }
+
         .form-group.invalid .form-control {
-            border-color: #dc3545 ;
+            border-color: #dc3545;
         }
     </style>
 </head>
 <body>
-    <%--    Use case Dang nhap B.1 Tiến--%>
+<%--    Use case Dang nhap B.1 Tiến--%>
 
-    <%--    2.  Hệ thống hiển thị giao diện cho phép thực hiện đăng nhập,
-    giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   --%>
+<%--    2.  Hệ thống hiển thị giao diện cho phép thực hiện đăng nhập,
+giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   --%>
 <div class="limiter">
     <div class="container-fluid container-header ">
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="home" class="text-decoration-none">
-                    <img width="250" src="img/logo.png"  alt="">
+                    <img width="250" src="img/logo.png" alt="">
                 </a>
             </div>
         </div>
@@ -119,8 +122,9 @@
 						<span class="txt2">
 							Không phải là thành viên?
 						</span>
-
-                    <a href="register-account.html" class="txt2 bo1 text-decoration-none">
+                    <%--Use case Đăng ký tài khoản Long--%>
+                    <%--1. Người dùng ấn vào nút đăng ký để tạo một tài khoản--%>
+                    <a href="signup.jsp" class="txt2 bo1 text-decoration-none">
                         Đăng ký
                     </a>
                 </div>
@@ -132,19 +136,19 @@
 
 <div id="dropDownSelect1"></div>
 
-    <script src="js/login.js"></script>
-    <script>
-        Validator({
-            form: '#form-1',
-            errorSelector: '.form-message',
-            formGroupElement: '.form-group',
-            rules: [
-                // 5. Hệ thống tự động kiểm tra thông tin nhập vào có hợp lệ không tại client.
-                Validator.isRequired('#name','Vui lòng nhập tên tài khoản của bạn'),
-                Validator.minLength('#password',6,'Vui lòng nhập mật khẩu đủ 6 ký tự'),
-            ]
-        });
-    </script>
+<script src="js/login.js"></script>
+<script>
+    Validator({
+        form: '#form-1',
+        errorSelector: '.form-message',
+        formGroupElement: '.form-group',
+        rules: [
+            // 5. Hệ thống tự động kiểm tra thông tin nhập vào có hợp lệ không tại client.
+            Validator.isRequired('#name', 'Vui lòng nhập tên tài khoản của bạn'),
+            Validator.minLength('#password', 6, 'Vui lòng nhập mật khẩu đủ 6 ký tự'),
+        ]
+    });
+</script>
 
 
 <!--===============================================================================================-->

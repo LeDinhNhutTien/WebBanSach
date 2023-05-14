@@ -17,7 +17,7 @@ public class DAO {
     private PreparedStatement ps = null;
     protected ResultSet rs = null;
 
-    //Use case Dang nhap  (B.1 Tiến)
+    //Use case Dang nhap  (B.1
     //  8.  Hệ thống tìm thông tin tài khoản người dùng thông qua tên
     // tài khoản và mật khẩu trong cơ sở dữ liệu.
     public User login(String user, String password){
@@ -28,12 +28,11 @@ public class DAO {
             ps.setString(1,user);
             ps.setString(2,password);
             rs = ps.executeQuery();
-            if (rs.next()){
-                return  new User(rs.getInt(1),rs.getString(2),
-                        rs.getString(3),rs.getString(4),rs.getInt(5));
+            if (rs.next()) {
+                return new User(rs.getInt(1), rs.getString(2),
+                        rs.getString(3), rs.getString(4), rs.getInt(5));
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
         }
         return null;
     }
@@ -51,7 +50,7 @@ public class DAO {
             while (rs.next()) {
                 return new Product(rs.getInt(1),
                         rs.getString(2), rs.getInt(3),
-                        rs.getString(4),rs.getString(5));
+                        rs.getString(4), rs.getString(5));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,7 +59,7 @@ public class DAO {
     }
 
     // lấy tất cả các sp
-    public List<Product> getAllProduct()    {
+    public List<Product> getAllProduct() {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT id,productName,price,image,description FROM products ";
         try {
@@ -70,7 +69,7 @@ public class DAO {
             while (rs.next()) {
                 products.add(new Product(rs.getInt(1),
                         rs.getString(2), rs.getInt(3),
-                        rs.getString(4),rs.getString(5)));
+                        rs.getString(4), rs.getString(5)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,7 +89,7 @@ public class DAO {
             while (rs.next()) {
                 products.add(new Product(rs.getInt(1),
                         rs.getString(2), rs.getInt(3),
-                        rs.getString(4),rs.getString(5)));
+                        rs.getString(4), rs.getString(5)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -110,7 +109,7 @@ public class DAO {
             while (rs.next()) {
                 products.add(new Product(rs.getInt(1),
                         rs.getString(2), rs.getInt(3),
-                        rs.getString(4),rs.getString(5)));
+                        rs.getString(4), rs.getString(5)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -130,7 +129,7 @@ public class DAO {
             while (rs.next()) {
                 products.add(new Product(rs.getInt(1),
                         rs.getString(2), rs.getInt(3),
-                        rs.getString(4),rs.getString(5)));
+                        rs.getString(4), rs.getString(5)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -197,6 +196,5 @@ public class DAO {
 //        for (Product product : products) {
 //            System.out.println(product.toString());
 //        }
-
     }
 }
