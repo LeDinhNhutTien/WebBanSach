@@ -1,9 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Đăng nhập</title>
+    <link  rel="icon" href="img/book.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -36,11 +38,9 @@
             line-height: 1.6rem;
             padding: 4px 0 0;
         }
-
         .form-group.invalid .form-message {
-            color: #dc3545;
+            color: #dc3545 ;
         }
-
         .form-control {
             height: 40px;
             padding: 8px 12px;
@@ -49,23 +49,22 @@
             outline: none;
             font-size: 1.4rem;
         }
-
         .form-group.invalid .form-control {
-            border-color: #dc3545;
+            border-color: #dc3545 ;
         }
     </style>
 </head>
 <body>
-<%--    Use case Dang nhap B.1 Tiến--%>
+    <%--    Use case Dang nhap B.1 Tiến--%>
 
-<%--    2.  Hệ thống hiển thị giao diện cho phép thực hiện đăng nhập,
-giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   --%>
+    <%--    2.  Hệ thống hiển thị giao diện cho phép thực hiện đăng nhập,
+    giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   --%>
 <div class="limiter">
     <div class="container-fluid container-header ">
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="home" class="text-decoration-none">
-                    <img width="250" src="img/logo.png" alt="">
+                    <img width="250" src="img/logo.png"  alt="">
                 </a>
             </div>
         </div>
@@ -73,8 +72,11 @@ giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   -
 
     <div class="container-login100">
         <div class="wrap-login100 p-l-110 p-r-110 p-t-10 p-b-33">
-            <form class="login100-form validate-form flex-sb flex-w" id="form-1">
-					<span class="login100-form-title p-b-33">
+            <form class="login100-form validate-form flex-sb flex-w" id="form-1" action="login" method="post">
+                <%
+                    String e = (String) request.getAttribute("error");
+                %>
+                <span class="login100-form-title p-b-33">
 						Đăng Nhập Với
 					</span>
 
@@ -87,8 +89,17 @@ giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   -
                     <img src="img/icon-google.png" alt="GOOGLE">
                     Google
                 </a>
-                <div style="height: 35px;width: 100%;">
-                    <p class="text-danger" style="font-size: 20px;">${error}</p> <%--hiển thị lỗi--%>
+                <div style="height: 35px;width: 100%; ">
+                    <%
+                        if (e != null) {
+                    %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= e %>
+                    </div>
+                    <%
+                        }
+                    %>
+<%--                    <p class="text-danger" style="font-size: 20px; ">${error}</p> &lt;%&ndash;hiển thị lỗi&ndash;%&gt;--%>
                 </div>
                 <%--3. Người dùng nhập vào thông tin tên tài khoàn và mật khẩu--%>
                 <div class="p-t-15 p-b-9">
@@ -97,7 +108,7 @@ giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   -
 						</span>
                 </div>
                 <div class="wrap-input100 validate-input form-group" data-validate="Username is required">
-                    <input class="input100 form-control" id="name" type="text" name="username">
+                    <input class="input100 form-control" value="<%= request.getParameter("username")!=null?request.getParameter("username"): "" %>"   id="name" type="text" name="username">
                     <span class="form-message"></span>
                 </div>
                 <div class="p-t-13 p-b-9">
@@ -114,7 +125,7 @@ giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   -
                 </div>
                 <%--4. Người dùng ấn vào nút đăng nhập--%>
                 <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
                         Đăng nhập
                     </button>
                 </div>
@@ -129,26 +140,25 @@ giao diện gồm có tên tài khoản, mật khẩu và nút đăng nhập   -
                     </a>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
 
 <div id="dropDownSelect1"></div>
 
-<script src="js/login.js"></script>
-<script>
-    Validator({
-        form: '#form-1',
-        errorSelector: '.form-message',
-        formGroupElement: '.form-group',
-        rules: [
-            // 5. Hệ thống tự động kiểm tra thông tin nhập vào có hợp lệ không tại client.
-            Validator.isRequired('#name', 'Vui lòng nhập tên tài khoản của bạn'),
-            Validator.minLength('#password', 6, 'Vui lòng nhập mật khẩu đủ 6 ký tự'),
-        ]
-    });
-</script>
+    <script src="js/login.js"></script>
+    <script>
+        Validator({
+            form: '#form-1',
+            errorSelector: '.form-message',
+            formGroupElement: '.form-group',
+            rules: [
+                // 5. Hệ thống tự động kiểm tra thông tin nhập vào có hợp lệ không tại client.
+                Validator.isRequired('#name','Vui lòng nhập tên tài khoản của bạn'),
+                Validator.minLength('#password',6,'Vui lòng nhập mật khẩu đủ 6 ký tự'),
+            ]
+        });
+    </script>
 
 
 <!--===============================================================================================-->
