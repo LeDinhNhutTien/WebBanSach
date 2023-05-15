@@ -40,7 +40,7 @@
     </style>
 </head>
 <body>
-<%--Use case Đăng ký tài khoản Long--%>
+<%--Use case Đăng ký tài khoản B.3 Long--%>
 <%--    2.  Hệ thống hiển thị giao diện cho phép thực hiện đăng ký,
     giao diện gồm có tên tài khoản, mật khẩu, nhập lại mật khẩu và nút đăng ký   --%>
 <div class="container-fluid container-header ">
