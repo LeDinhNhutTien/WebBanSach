@@ -12,7 +12,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+//        doPost(request, response);
     }
 
     // Use case Dang nhap (B.1 Tiến)

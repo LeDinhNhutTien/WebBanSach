@@ -1,9 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Đăng nhập</title>
+    <link  rel="icon" href="img/book.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -70,8 +72,11 @@
 
     <div class="container-login100">
         <div class="wrap-login100 p-l-110 p-r-110 p-t-10 p-b-33">
-            <form class="login100-form validate-form flex-sb flex-w" id="form-1">
-					<span class="login100-form-title p-b-33">
+            <form class="login100-form validate-form flex-sb flex-w" id="form-1" action="login" method="post">
+                <%
+                    String e = (String) request.getAttribute("error");
+                %>
+                <span class="login100-form-title p-b-33">
 						Đăng Nhập Với
 					</span>
 
@@ -84,8 +89,17 @@
                     <img src="img/icon-google.png" alt="GOOGLE">
                     Google
                 </a>
-                <div style="height: 35px;width: 100%;">
-                    <p class="text-danger" style="font-size: 20px;">${error}</p> <%--hiển thị lỗi--%>
+                <div style="height: 35px;width: 100%; ">
+                    <%
+                        if (e != null) {
+                    %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= e %>
+                    </div>
+                    <%
+                        }
+                    %>
+<%--                    <p class="text-danger" style="font-size: 20px; ">${error}</p> &lt;%&ndash;hiển thị lỗi&ndash;%&gt;--%>
                 </div>
                 <%--3. Người dùng nhập vào thông tin tên tài khoàn và mật khẩu--%>
                 <div class="p-t-15 p-b-9">
@@ -94,7 +108,7 @@
 						</span>
                 </div>
                 <div class="wrap-input100 validate-input form-group" data-validate="Username is required">
-                    <input class="input100 form-control" id="name" type="text" name="username">
+                    <input class="input100 form-control" value="<%= request.getParameter("username")!=null?request.getParameter("username"): "" %>"   id="name" type="text" name="username">
                     <span class="form-message"></span>
                 </div>
                 <div class="p-t-13 p-b-9">
@@ -111,7 +125,7 @@
                 </div>
                 <%--4. Người dùng ấn vào nút đăng nhập--%>
                 <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
                         Đăng nhập
                     </button>
                 </div>
@@ -120,12 +134,11 @@
 							Không phải là thành viên?
 						</span>
 
-                    <a href="register-account.html" class="txt2 bo1 text-decoration-none">
+                    <a href="signup.jsp" class="txt2 bo1 text-decoration-none">
                         Đăng ký
                     </a>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
