@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link  rel="icon" href="img/book.jpg">
+    <link rel="icon" href="img/book.jpg">
     <title>Mua Sách Online Nhanh Nhất</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
@@ -16,7 +16,8 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -28,8 +29,12 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/stylesfooter.css">
     <link rel="stylesheet" href="css/product.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+            integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+            crossorigin="anonymous"></script>
 
 
 </head>
@@ -82,13 +87,13 @@
         </div>
         <!-- Topbar 2   -->
         <div class="container-fluid container-header2 pt-0">
-            <div class="row align-items-center py-3 px-xl-5"style="justify-content: space-between;">
+            <div class="row align-items-center py-3 px-xl-5" style="justify-content: space-between;">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0 ">
                             <a href="home" class="nav-item nav-link active">Trang chủ</a>
                             <div class="nav-item dropdown">
-                                <a href="shop" class="nav-link" >Sản phẩm</a>
+                                <a href="shop" class="nav-link">Sản phẩm</a>
 
                             </div>
                             <a href="detail.html" class="nav-item nav-link">Giới thiệu</a>
@@ -97,8 +102,11 @@
                     </div>
                 </nav>
 
-                <div class="col-lg-3 col-6 ml-5 text-right " style="display: flex;padding: 0 15px;justify-content: flex-end ;gap: 50px">
-                    <a href="register-account.html" class="btn border border-back">
+                <div class="col-lg-3 col-6 ml-5 text-right "
+                     style="display: flex;padding: 0 15px;justify-content: flex-end ;gap: 50px">
+                    <%--Use case Đăng ký tài khoản Long--%>
+                    <%--1. Người dùng ấn vào nút đăng ký để tạo một tài khoản--%>
+                    <a href="signup.jsp" class="btn border border-back">
                         Đăng ký
                     </a>
                     <c:if test="${sessionScope.acc != null}">
@@ -123,15 +131,18 @@
     <!-- Navbar Start -->
     <div class="container-fluid mb-1 mt-153 " style="justify-content: space-between; ">
         <div class="row-slider border-top px-xl-5 ">
-            <div class="col-lg-9 align-content-center " >
+            <div class="col-lg-9 align-content-center ">
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="height: 470px; text-align: center; ">
                             <img class="img-fluid" src="img/slider1.jpg" alt="Image">
-                            <div class="carousel-caption d-flex flex-column align-items-center" style="justify-content: space-between;">
+                            <div class="carousel-caption d-flex flex-column align-items-center"
+                                 style="justify-content: space-between;">
                                 <div class="p-3" style="max-width: 700px; margin-top: 180px">
-                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">GIẢM GIÁ 20% CHO ĐƠN HÀNG ĐẦU TIÊN CỦA BẠN</h4>
-                                    <a href="shop.jsp" class="btn btn-light py-2 px-3" style="border-radius: 10px">MUA NGAY</a>
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">GIẢM GIÁ 20% CHO ĐƠN
+                                        HÀNG ĐẦU TIÊN CỦA BẠN</h4>
+                                    <a href="shop.jsp" class="btn btn-light py-2 px-3" style="border-radius: 10px">MUA
+                                        NGAY</a>
                                 </div>
                             </div>
                         </div>
@@ -204,8 +215,8 @@
                 </div> -->
                 <ul class="products">
                     <c:forEach items="${listHot}" var="o">
-                       <li style="width: 31.5%; height: 100%;margin: 30px 0;">
-                            <div class="product-item" >
+                        <li style="width: 31.5%; height: 100%;margin: 30px 0;">
+                            <div class="product-item">
                                 <div class="product-image" style="position: relative">
                                     <a href="" class="product-image-maskup">
                                         <img src="${o.image}">
@@ -214,9 +225,16 @@
                                         <h5 style="color: #c9bdfb;">${o.name}</h5>
                                         <h5 style="color: rgb(11, 220, 11);">Hình thức bìa: Bìa mềm</h5>
                                         <ul>
-                                            <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</li>
-                                            <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</li>
-                                            <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</li>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Miễn phí giao hàng
+                                            </li>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng
+                                            </li>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu
+                                                cầu)
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="product-top">
@@ -230,9 +248,9 @@
                                     <div class="product-price">${o.price} VNĐ</div>
                                 </div
 
-                                <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
-                                <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
-                                     trên giao diện mỗi sản phẩm.--%>
+                                    <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
+                                    <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
+                                         trên giao diện mỗi sản phẩm.--%>
                                 <div class="product-detail">
                                     <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
                                 </div>
@@ -257,36 +275,43 @@
                 <ul class="products">
                     <c:forEach items="${listSell}" var="o">
                         <li style="width: 31.5%; height: 100%;margin: 30px 0;">
-                        <div class="product-item" >
-                            <div class="product-image" style="position: relative">
-                                <a href="" class="product-image-maskup">
-                                    <img src="${o.image}">
-                                </a>
-                                <div class="product-image-maskup-info">
-                                    <h5 style="color: #c9bdfb;">${o.name}</h5>
-                                    <h5 style="color: rgb(11, 220, 11);">Hình thức bìa: Bìa mềm</h5>
-                                    <ul>
-                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</li>
-                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</li>
-                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</li>
-                                    </ul>
+                            <div class="product-item">
+                                <div class="product-image" style="position: relative">
+                                    <a href="" class="product-image-maskup">
+                                        <img src="${o.image}">
+                                    </a>
+                                    <div class="product-image-maskup-info">
+                                        <h5 style="color: #c9bdfb;">${o.name}</h5>
+                                        <h5 style="color: rgb(11, 220, 11);">Hình thức bìa: Bìa mềm</h5>
+                                        <ul>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Miễn phí giao hàng
+                                            </li>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng
+                                            </li>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu
+                                                cầu)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-top">
+                                        <img src="img/product1/top.png">
+                                    </div>
                                 </div>
-                                <div class="product-top">
-                                    <img src="img/product1/top.png">
-                                </div>
-                            </div>
 
-                            <div class="product-title">${o.name}</div>
-                            <div class="product-deal">
-                                <div class="product-buy"><a href="buynow.html">Mua ngay</a></div>
-                                <div class="product-price">${o.price} VNĐ</div>
-                            </div>
-                                <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
-                                <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
-                                     trên giao diện mỗi sản phẩm.--%>
-                            <div class="product-detail">
-                                <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
-                            </div>
+                                <div class="product-title">${o.name}</div>
+                                <div class="product-deal">
+                                    <div class="product-buy"><a href="buynow.html">Mua ngay</a></div>
+                                    <div class="product-price">${o.price} VNĐ</div>
+                                </div>
+                                    <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
+                                    <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
+                                         trên giao diện mỗi sản phẩm.--%>
+                                <div class="product-detail">
+                                    <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
+                                </div>
                             </div>
                         </li>
                     </c:forEach>
@@ -307,44 +332,52 @@
                 </div>
                 <ul class="products">
                     <c:forEach items="${listPromotion}" var="o">
-                     <li style="width: 31.5%; height: 100%;margin: 30px 0">
-                        <div class="product-item">
-                            <div class="product-image" style="position: relative">
-                                <a href="" class="product-image-maskup">
-                                    <img src="${o.image}">
-                                </a>
-                                <div class="product-image-maskup-info">
-                                    <h5 style="color: #c9bdfb;">${o.name}</h5>
-                                    <h5 style="color: rgb(11, 220, 11);">Hình thức bìa: Bìa mềm</h5>
-                                    <ul>
-                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Miễn phí giao hàng</li>
-                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng</li>
-                                        <li style="font-size: 18px; margin: 5px 0" class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu cầu)</li>
-                                    </ul>
+                        <li style="width: 31.5%; height: 100%;margin: 30px 0">
+                            <div class="product-item">
+                                <div class="product-image" style="position: relative">
+                                    <a href="" class="product-image-maskup">
+                                        <img src="${o.image}">
+                                    </a>
+                                    <div class="product-image-maskup-info">
+                                        <h5 style="color: #c9bdfb;">${o.name}</h5>
+                                        <h5 style="color: rgb(11, 220, 11);">Hình thức bìa: Bìa mềm</h5>
+                                        <ul>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Miễn phí giao hàng
+                                            </li>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Tặng Bookmark cho mỗi đơn hàng
+                                            </li>
+                                            <li style="font-size: 18px; margin: 5px 0"
+                                                class="fas fa-check-circle text-primary"> Bao sách miễn phí (theo yêu
+                                                cầu)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-top">
+                                        <span class="percent">18%</span>
+                                        <span class="reduce">giảm</span>
+                                    </div>
                                 </div>
-                                <div class="product-top">
-                                    <span class="percent">18%</span>
-                                    <span class="reduce">giảm</span>
-                                </div>
-                            </div>
 
-                            <div class="product-title">${o.name}</div>
-                            <div class="product-deal">
-                                <div class="product-buy" style="margin-top: 10px;"><a href="buynow.html">Mua ngay</a></div>
-                                <div class="product-price-sale">
-                                    <div class="product-price">160,000 VNĐ</div>
-                                    <div class="empty"></div>
-                                    <div class="price-sale">${o.price} VNĐ </div>
+                                <div class="product-title">${o.name}</div>
+                                <div class="product-deal">
+                                    <div class="product-buy" style="margin-top: 10px;"><a href="buynow.html">Mua
+                                        ngay</a></div>
+                                    <div class="product-price-sale">
+                                        <div class="product-price">160,000 VNĐ</div>
+                                        <div class="empty"></div>
+                                        <div class="price-sale">${o.price} VNĐ</div>
+                                    </div>
+                                </div>
+                                    <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
+                                    <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
+                                         trên giao diện mỗi sản phẩm.--%>
+                                <div class="product-detail">
+                                    <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
                                 </div>
                             </div>
-                                <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
-                                <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
-                                     trên giao diện mỗi sản phẩm.--%>
-                            <div class="product-detail">
-                                <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
                     </c:forEach>
                 </ul>
                 <div class="see-more" style="text-align: center; margin-bottom: 30px">
@@ -366,12 +399,15 @@
         <div class="row justify-content-md-center py-5 px-xl-5">
             <div class="col-md-6 col-12 py-5">
                 <div class="text-center mb-2 pb-2">
-                    <h2  class="section-title px-5 mb-3"><span class="bg-secondary px-2">Bạn chưa tìm được sản phẩm ưng ý ?</span></h2>
+                    <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">Bạn chưa tìm được sản phẩm ưng ý ?</span>
+                    </h2>
                     <p>Chúng tôi sẽ gửi ngay cho bạn thông tin khuyến mãi trong thời gian sắp tới mà bạn quan tâm.</p>
                 </div>
                 <form action="">
                     <div class="input-group">
-                        <input  style="border-radius: 10px 0px 0px 10px"  type="text" class="form-control border-white p-4" placeholder=" Nhập địa chỉ mail của bạn tại đây...">
+                        <input style="border-radius: 10px 0px 0px 10px" type="text"
+                               class="form-control border-white p-4"
+                               placeholder=" Nhập địa chỉ mail của bạn tại đây...">
                         <div class="input-group-append">
                             <button style="border-radius: 0 10px 10px 0px" class="btn btn-primary px-4">Đăng Ký</button>
                         </div>
@@ -423,9 +459,10 @@
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <a href="" class="text-decoration-none">
-                    <img width="400" src="img/logo.png" >
+                    <img width="400" src="img/logo.png">
                 </a>
-                <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.</p>
+                <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp
+                    trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.</p>
                 <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Thủ Đức, Linh Trung, Việt Nam</p>
                 <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@st.hcmuaf.edu.vn</p>
                 <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+081 *** ****</p>
@@ -450,24 +487,28 @@
                             <a class="text-dark mb-2" href="detail.html">Khách hàng hài lòng</a>
                             <a class="text-dark mb-2" href="#">Chính sách giao hàng </a>
                             <a class="text-dark mb-2" href="contact.html"></i>Hỏi đáp - FAQs</a>
-                            <a class="text-dark mb-2" href="#"></i>Chính sách  khuyến mãi</a>
+                            <a class="text-dark mb-2" href="#"></i>Chính sách khuyến mãi</a>
                             <a class="text-dark mb-2" href="#"></i>Hướng dẫn mua hàng</a>
-                            <a class="text-dark" href="#"></i>Chính sách  bảo hành</a>
+                            <a class="text-dark" href="#"></i>Chính sách bảo hành</a>
                         </div>
 
                     </div>
                     <div class="col-md-4 mb-5">
-                        <h5  class="font-weight-bold text-dark mb-4" style="text-align: center">Đăng Ký Nhận Thông Tin</h5>
+                        <h5 class="font-weight-bold text-dark mb-4" style="text-align: center">Đăng Ký Nhận Thông
+                            Tin</h5>
                         <form action="">
                             <div class="form-group">
-                                <input type="text" class="form-control border-0 py-4" placeholder="Tên của bạn" required="required" />
+                                <input type="text" class="form-control border-0 py-4" placeholder="Tên của bạn"
+                                       required="required"/>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control border-0 py-4" placeholder="Email của bạn"
-                                       required="required" />
+                                       required="required"/>
                             </div>
                             <div>
-                                <button class="btn btn-primary btn-block border-0 py-3" style="border-radius: 10px ;height: 40px" type="submit">Đăng Ký Bây Giờ</button>
+                                <button class="btn btn-primary btn-block border-0 py-3"
+                                        style="border-radius: 10px ;height: 40px" type="submit">Đăng Ký Bây Giờ
+                                </button>
                             </div>
 
                         </form>
@@ -485,7 +526,8 @@
         </div>
         <div>
             <div class="  site-footer__copyright  " style="padding-top: 15px">
-                <p>2023 © All Rights Reserved | Designed and Developed by :Lê Đình Nhựt Tiến, Bùi Quốc Long, Nguyễn Thùy Linh</p>
+                <p>2023 © All Rights Reserved | Designed and Developed by :Lê Đình Nhựt Tiến, Bùi Quốc Long, Nguyễn Thùy
+                    Linh</p>
             </div>
         </div>
     </div>
@@ -509,11 +551,26 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
-<script type="text/javascript" src="https://popupsmart.com/freechat.js"></script><script> window.start.init({ title: "Xin Chào", message:
-        "Chúng tôi có thể giúp gì cho bạn ? Xin để lại lại câu hỏi.", color: "#1C86FA", position: "left", placeholder: "Viết tin nhắn của bạn", withText: "Viết bằng", viaWhatsapp:
-        "hoặc liên hệ chúng tôi qua", gty: "đế của bạn", awu: "và viết cho chúng tôi", connect: "Kết nối ngay bây giờ", button: "Viết cho chúng tôi", device: "everywhere",
-    logo: "https://d2r80wdbkwti6l.cloudfront.net/pTmhkmIzK9pqU36Pv1Zl93h2oBNK9DFU.jpg", services:
-        [{"name":"whatsapp","content":null}]})</script>
+<script type="text/javascript" src="https://popupsmart.com/freechat.js"></script>
+<script> window.start.init({
+    title: "Xin Chào",
+    message:
+        "Chúng tôi có thể giúp gì cho bạn ? Xin để lại lại câu hỏi.",
+    color: "#1C86FA",
+    position: "left",
+    placeholder: "Viết tin nhắn của bạn",
+    withText: "Viết bằng",
+    viaWhatsapp:
+        "hoặc liên hệ chúng tôi qua",
+    gty: "đế của bạn",
+    awu: "và viết cho chúng tôi",
+    connect: "Kết nối ngay bây giờ",
+    button: "Viết cho chúng tôi",
+    device: "everywhere",
+    logo: "https://d2r80wdbkwti6l.cloudfront.net/pTmhkmIzK9pqU36Pv1Zl93h2oBNK9DFU.jpg",
+    services:
+        [{"name": "whatsapp", "content": null}]
+})</script>
 </body>
 
 </html>
