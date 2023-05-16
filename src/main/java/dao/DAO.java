@@ -20,13 +20,13 @@ public class DAO {
     //Use case Dang nhap  (B.1
     //  8.  Hệ thống tìm thông tin tài khoản người dùng thông qua tên
     // tài khoản và mật khẩu trong cơ sở dữ liệu.
-    public User login(String user, String password){
+    public User login(String user, String password) {
         String query = "select id,username,pass,fullname,role from user \n" + "where username = ?\n" + "and pass = ?";
         try {
             conn = ConnectionUtil.getConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1,user);
-            ps.setString(2,password);
+            ps.setString(1, user);
+            ps.setString(2, password);
             rs = ps.executeQuery();
             if (rs.next()) {
                 return new User(rs.getInt(1), rs.getString(2),
@@ -45,7 +45,7 @@ public class DAO {
         try {
             conn = ConnectionUtil.getConnection();
             ps = conn.prepareStatement(sql);
-            ps.setInt(1,id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new Product(rs.getInt(1),
@@ -191,7 +191,7 @@ public class DAO {
 
     public static void main(String[] args) {
         DAO productDAO = new DAO();
-        System.out.println(productDAO.login("Tien","1234567"));
+        System.out.println(productDAO.login("Tien", "1234567"));
 //        List<Product> products = productDAO.getProductHot();
 //        for (Product product : products) {
 //            System.out.println(product.toString());

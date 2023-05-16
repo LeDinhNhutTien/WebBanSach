@@ -18,9 +18,9 @@ public class ShopServlet extends HttpServlet {
         List<Product> listProduct = dao.getAllProduct();
 
         // set du lieu den jsp
-        request.setAttribute("listProduct",listProduct);
+        request.setAttribute("listProduct", listProduct);
 
-        request.getRequestDispatcher("shop.jsp").forward(request,response);
+        request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
     @Override

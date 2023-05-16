@@ -20,25 +20,25 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         //6. Nhận dữ liệu từ trang login.jsp gửi lên
-        String username  = request.getParameter("username");
-        String password  = request.getParameter("pass");
+        String username = request.getParameter("username");
+        String password = request.getParameter("pass");
 
         //7. Hệ thống kết nối với cơ sở dữ liệu
         DAO dao = new DAO();
 
         //9. He thong tra ve ket qua dang nhap
-        User user = dao.login(username,password);
+        User user = dao.login(username, password);
 
         //11. Nếu không có tài khoản, thông báo lỗi và yêu cầu người dùng đăng nhập lại.
-        if (user == null){
-            request.setAttribute("error","Tên tài khoản hoặc mật khẩu sai");
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+        if (user == null) {
+            request.setAttribute("error", "Tên tài khoản hoặc mật khẩu sai");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
         //10. Nếu có tài khoản, hệ thống ghi nhận trạng thái đăng nhập thành công
         // vào session và hiển thị giao diện trang chủ
-        else{
+        else {
             HttpSession session = request.getSession(true);
-            session.setAttribute("acc",user);
+            session.setAttribute("acc", user);
             response.sendRedirect("home");
         }
     }

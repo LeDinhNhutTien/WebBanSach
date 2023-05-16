@@ -3,18 +3,19 @@ package entities;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private  static final  long serialVersionUID = 1l;
-    private  int id;
-    private  String username;
-    private  String pass;
-    private  String fullname;
+    private static final long serialVersionUID = 1l;
+    private int id;
+    private String username;
+    private String pass;
+    private String fullname;
     private int role;
     private int oid;
-    private  String address;
+    private String address;
+
     public User() {
     }
 
-//    public User(int id, int oid, String fullname, String address) {
+    //    public User(int id, int oid, String fullname, String address) {
 //        this.id = id;
 //        this.oid = oid;
 //        this.fullname = fullname;

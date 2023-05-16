@@ -23,10 +23,10 @@ public class ProductDetailServlet extends HttpServlet {
 
         // 5. He thong tra ve thong tin chi tiet cua san pham
         Product p = dao.getProductByID(id);
-        request.setAttribute("detail",p);
+        request.setAttribute("detail", p);
 
         // 6. Hệ thống hiển thị giao diện xem sản phẩm có đầy đủ thông tin về sản phẩm.
-        request.getRequestDispatcher("product_detail.jsp").forward(request,response);
+        request.getRequestDispatcher("product_detail.jsp").forward(request, response);
     }
 
     @Override
