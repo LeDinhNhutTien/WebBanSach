@@ -35,13 +35,13 @@ public class SignupServlet extends HttpServlet {
             User u = dao.checkUserExist(user);
 //            9. Hệ thống kiểm tra trong cơ sở dữ liệu có tài khoản cần tạo hay chưa
             if (u == null) {
-                // dc signup
+                // Được signup
 //                11. Tạo một tài khoản trong cơ sở dữ liệu và chuyển đến trang đăng ký tài khoản thành công
                 String id = "" + (dao.getNewID() + 1);
                 dao.singup(id, user, pass);
                 response.sendRedirect("success-signup.jsp");
             } else {
-                // day ve trang dang ky
+                // đẩy về trang đăng ký
 //                10. Hệ thống thông báo tài khoản đã tồn tại
                 request.setAttribute("error", "Tài khoản đã tồn tại!");
                 request.getRequestDispatcher("signup.jsp").forward(request, response);
