@@ -20,11 +20,11 @@ public class HomeServlet extends HttpServlet {
         List<Product> listProductPromotion = dao.getProducPromotion();
 
         // set du lieu den jsp
-        request.setAttribute("listHot",listProductHot);
-        request.setAttribute("listSell",listProductSell);
-        request.setAttribute("listPromotion",listProductPromotion);
+        request.setAttribute("listHot", listProductHot);
+        request.setAttribute("listSell", listProductSell);
+        request.setAttribute("listPromotion", listProductPromotion);
 
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     @Override

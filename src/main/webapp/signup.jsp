@@ -85,7 +85,7 @@
         </div>
 
     </fieldset>
-    <%--4. Người dùng nhấn vào nút đăng ký--%>
+    <%--5. Người dùng nhấn vào nút đăng ký--%>
     <button type="submit">Đăng ký</button>
 </form>
 <script src="js/login.js"></script>
@@ -95,7 +95,7 @@
         errorSelector: '.form-message',
         formGroupElement: '.form-group',
         rules: [
-            // 5. Hệ thống tự động kiểm tra thông tin nhập vào có hợp lệ không tại client.
+            // 4. Hệ thống tự động kiểm tra thông tin nhập vào có hợp lệ không tại client.
             Validator.isRequired('#name', 'Vui lòng nhập tên tài khoản của bạn'),
             Validator.minLength('#password', 6, 'Vui lòng nhập mật khẩu đủ 6 ký tự'),
             Validator.minLength('#re_password', 6, 'Vui lòng nhập mật khẩu đủ 6 ký tự'),
