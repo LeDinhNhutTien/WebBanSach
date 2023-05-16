@@ -137,7 +137,7 @@ public class DAO {
         return products;
     }
 
-    //    Use case Đăng ký tài khoản Long
+    //    Use case Đăng ký tài khoản B.3 Long
     // Signup( Đăng ký)
     // Kiểm tra tài khoản có tồn tại hay không
     public User checkUserExist(String user) {

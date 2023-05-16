@@ -133,7 +133,8 @@
 						<span class="txt2">
 							Không phải là thành viên?
 						</span>
-
+                    <%--Use case Đăng ký tài khoản B.3 Long--%>
+                    <%--1. Người dùng ấn vào nút đăng ký để tạo một tài khoản--%>
                     <a href="signup.jsp" class="txt2 bo1 text-decoration-none">
                         Đăng ký
                     </a>

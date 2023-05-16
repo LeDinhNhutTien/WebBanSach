@@ -85,7 +85,7 @@
     </div>
 </div>
 <!-- Topbar End -->
-<%--Use case Đăng ký tài khoản Long--%>
+<%--Use case Đăng ký tài khoản B.3 Long--%>
 <%--11. Tạo một tài khoản trong cơ sở dữ liệu và chuyển đến trang đăng ký tài khoản thành công--%>
 <div class="container-fluid mb-1 mt-153 pt-100 " style="justify-content: space-between; ">
     <div class="row-slider border-top px-xl-5 ">

@@ -104,7 +104,7 @@
 
                 <div class="col-lg-3 col-6 ml-5 text-right "
                      style="display: flex;padding: 0 15px;justify-content: flex-end ;gap: 50px">
-                    <%--Use case Đăng ký tài khoản Long--%>
+                    <%--Use case Đăng ký tài khoản B.3 Long--%>
                     <%--1. Người dùng ấn vào nút đăng ký để tạo một tài khoản--%>
                     <a href="signup.jsp" class="btn border border-back">
                         Đăng ký
