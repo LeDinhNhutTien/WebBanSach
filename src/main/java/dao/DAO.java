@@ -36,7 +36,7 @@ public class DAO {
         }
         return null;
     }
-
+    
 
     //Use case Xem chi tiet san pham  (B.2 Tiến)
     // 4. Hệ thống tìm thông tin sản phẩm này trong cơ sở dữ liệu.
@@ -188,6 +188,24 @@ public class DAO {
         return newID;
     }
 
+    // doi mat khau
+    public int update(int idUser, String fullname, String address) {
+        String query = new String("update user \\n\" +\n" +
+                "                    \"set fullname = ?,\\n\" +\n" +
+                "                    \"address =?\\n\" +\n" +
+                "                    \"where id=?");
+        PreparedStatement statement = null;
+        try{
+            conn = ConnectionUtil.getConnection();
+            statement = conn.prepareStatement(query.toString());
+            statement.setString(1, fullname);
+            statement.setString(2, address);
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            return 0;
+        }
+    }
+
 
     public static void main(String[] args) {
         DAO productDAO = new DAO();
@@ -196,5 +214,39 @@ public class DAO {
 //        for (Product product : products) {
 //            System.out.println(product.toString());
 //        }
+    }
+
+    public List<Product> getProducHot() {
+        return null;
+    }
+
+    public List<Product> getProducSell() {
+        return  null;
+    }
+
+    public List<Product> getProducPromotion() {
+        return null;
+    }
+
+    //Use case Tim kiem san pham
+    public List<Product> searchByName(String txtSearch) {
+        List<Product> list = new ArrayList<>();
+        String query = "select * from product\n"
+                + "where productName like ?";
+        try {
+            conn = new ConnectionUtil().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
     }
 }

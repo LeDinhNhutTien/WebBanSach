@@ -12,6 +12,7 @@ public class User implements Serializable {
     private int oid;
     private String address;
 
+    private int loginCounter;
     public User() {
     }
 
@@ -91,6 +92,14 @@ public class User implements Serializable {
 
     public void setRole(int role) {
         this.role = role;
+    }
+
+    public int getLoginCounter() {
+        return loginCounter;
+    }
+
+    public void setLoginCounter(int loginCounter) {
+        this.loginCounter = loginCounter;
     }
 
     @Override
