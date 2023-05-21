@@ -42,13 +42,14 @@
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
-                <form action="">
+                <form action="search" method="post">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Bạn tìm gì...">
+                        <input type="text" name="txt" value="${txtS}" class="form-control" placeholder="Bạn tìm gì..."
+                        aria-describedby="helpId" oninput="searchByName(this)">
                         <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
+                            <button class="btn btn-secondary btn-number" type="submit">
                                 <i class="fa fa-search"></i>
-                            </span>
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -119,92 +120,93 @@
 
             <div class="col-lg-9 col-md-12">
                 <div class="row pb-3">
-                    <div class="col-12 pb-1">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <form action="">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Tìm kiếm theo tên">
-                                    <div class="input-group-append">
+                      <div class="col-12 pb-1">
+                          <div class="d-flex align-items-center justify-content-between mb-4">
+                              <form action="" method="" class="form-inline my-2 my-lg-0">
+                                  <div class="input-group input-group-sm">
+                                      <input oninput="" value="" type="text" name="text" class="form-control" placeholder="Tìm kiếm theo tên">
+                                      <div class="input-group-append">
                                                 <span class="input-group-text bg-transparent text-primary">
                                                     <i class="fa fa-search"></i>
                                                 </span>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="dropdown ml-4">
-                                <button class="btn border dropdown-toggle" type="button" id="triggerId"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Lọc theo
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-                                    <a class="dropdown-item" href="#">Sản phẩm mới</a>
-                                    <a class="dropdown-item" href="#">Phổ biến</a>
-                                    <a class="dropdown-item" href="#">Đánh giá tốt nhất</a>
-                                </div>
-                            </div>
-                        </div>
+                                      </div>
+                                  </div>
+                              </form>
+                              <div class="dropdown ml-4">
+                                  <button class="btn border dropdown-toggle" type="button" id="triggerId"
+                                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Lọc theo
+                                  </button>
+                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                                      <a class="dropdown-item" href="#">Sản phẩm mới</a>
+                                      <a class="dropdown-item" href="#">Phổ biến</a>
+                                      <a class="dropdown-item" href="#">Đánh giá tốt nhất</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    <div id="content">
+                     <div id="product-shop">
+                          <div class="container p-0">
+                              <div class="product-hot">
+                                  <div class="shop-overview">
+                                      <ul class="products">
+                                          <c:forEach items="${listProduct}" var="o">
+                                              <li style="width: 31.5%; height: 100%;margin: 30px 0;">
+                                                  <div class="product-item" >
+                                                      <div class="product-image" style="position: relative">
+                                                          <a href="" class="product-image-maskup">
+                                                              <img src="${o.image}">
+                                                          </a>
+                                                          <div class="product-image-maskup-info">
+                                                              <h5 style="color: #c9bdfb;">${o.name}</h5>
+                                                              <h5 style="color: rgb(11, 220, 11);">Na Gyeo Ul</h5>
+                                                              <p style="font-size: 17px;">
+                                                                  Đừng Để Tâm Trạng Trở Thành Thái Độ Mỗi chúng ta ai cũng từng trăn trở tại sao lại khó yêu thương chính mình đến vậy. Nhưng thời gian sẽ khiến bạn nhận ra đây là việc không ai có thể làm thay ngoài bản thân mình. Yêu thương bản thân kỳ thực chỉ đơn giản
+                                                                  là quan tâm đến cuộc đời của mình.</p>
+                                                          </div>
+                                                      </div>
+                                                      <div class="product-title">${o.name}</div>
+                                                      <div class="product-deal">
+                                                          <div class="product-buy"><a href="buynow.html">Mua ngay</a></div>
+                                                          <div class="product-price">${o.price} VNĐ</div>
+                                                      </div>
+                                                          <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
+                                                          <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
+                                                               trên giao diện mỗi sản phẩm.--%>
+                                                      <div class="product-detail">
+                                                          <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
+                                                      </div>
+                                                  </div>
+                                              </li>
+                                          </c:forEach>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                     </div>
-
-                    <div id="product-shop">
-                        <div class="container p-0">
-                            <div class="product-hot">
-                                <div class="shop-overview">
-                                    <ul class="products">
-                                        <c:forEach items="${listProduct}" var="o">
-                                            <li style="width: 31.5%; height: 100%;margin: 30px 0;">
-                                                <div class="product-item" >
-                                                   <div class="product-image" style="position: relative">
-                                                       <a href="" class="product-image-maskup">
-                                                           <img src="${o.image}">
-                                                       </a>
-                                                       <div class="product-image-maskup-info">
-                                                           <h5 style="color: #c9bdfb;">${o.name}</h5>
-                                                           <h5 style="color: rgb(11, 220, 11);">Na Gyeo Ul</h5>
-                                                           <p style="font-size: 17px;">
-                                                               Đừng Để Tâm Trạng Trở Thành Thái Độ Mỗi chúng ta ai cũng từng trăn trở tại sao lại khó yêu thương chính mình đến vậy. Nhưng thời gian sẽ khiến bạn nhận ra đây là việc không ai có thể làm thay ngoài bản thân mình. Yêu thương bản thân kỳ thực chỉ đơn giản
-                                                               là quan tâm đến cuộc đời của mình.</p>
-                                                       </div>
-                                                     </div>
-                                                   <div class="product-title">${o.name}</div>
-                                                   <div class="product-deal">
-                                                       <div class="product-buy"><a href="buynow.html">Mua ngay</a></div>
-                                                       <div class="product-price">${o.price} VNĐ</div>
-                                                   </div>
-                                           <%--Use case Xem chi tiet san pham (B.2 Tiến)--%>
-                                           <%--  1.Người sử dụng chọn chức năng Xem chi tiết sản phẩm
-                                                trên giao diện mỗi sản phẩm.--%>
-                                           <div class="product-detail">
-                                               <a href="detail?pid=${o.id}" class="product-cat">Xem chi tiết</a>
-                                           </div>
-                                            </div>
-                                            </li>
-                                        </c:forEach>
-                                   </ul>
-                               </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 pb-1">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center mb-3">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="shop.jsp">1</a></li>
-                                <li class="page-item"><a class="page-link" href="shop2.html">2</a></li>
-                                <li class="page-item"><a class="page-link" href="shop3.html">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                      <div class="col-12 pb-1">
+                          <nav aria-label="Page navigation">
+                              <ul class="pagination justify-content-center mb-3">
+                                  <li class="page-item disabled">
+                                      <a class="page-link" href="#" aria-label="Previous">
+                                          <span aria-hidden="true">&laquo;</span>
+                                          <span class="sr-only">Previous</span>
+                                      </a>
+                                  </li>
+                                  <li class="page-item active"><a class="page-link" href="shop.jsp">1</a></li>
+                                  <li class="page-item"><a class="page-link" href="shop2.html">2</a></li>
+                                  <li class="page-item"><a class="page-link" href="shop3.html">3</a></li>
+                                  <li class="page-item">
+                                      <a class="page-link" href="#" aria-label="Next">
+                                          <span aria-hidden="true">&raquo;</span>
+                                          <span class="sr-only">Next</span>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </nav>
+                      </div>
                 </div>
             </div>
             <!-- Shop Product End -->
@@ -298,6 +300,7 @@
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 <!--PupUpSmart-->
@@ -306,6 +309,25 @@
         "hoặc liên hệ chúng tôi qua", gty: "đế của bạn", awu: "và viết cho chúng tôi", connect: "Kết nối ngay bây giờ", button: "Viết cho chúng tôi", device: "everywhere",
     logo: "https://d2r80wdbkwti6l.cloudfront.net/pTmhkmIzK9pqU36Pv1Zl93h2oBNK9DFU.jpg", services:
         [{"name":"whatsapp","content":null}]})</script>
+<script>
+    function searchByName(param) {
+        var txtSearch = param.value;
+        $.ajax({
+            url:"/WebBanSach/search",
+            type: "get",
+            data: {
+                txt: txtSearch
+            },
+            success: function (data) {
+                var row = document.getElementById("content");
+                row.innerHTML = data;
+            },
+            error: function (xhr) {
+
+            }
+        })
+    }
+</script>
 </body>
 
 </html>
